@@ -188,6 +188,12 @@ if(NOT DISABLE_LIRC)
 endif()
 add_feature_info(LIRCCLIENT LIRCCLIENT_FOUND "The LIRC client library, for remote control support")
 
+pkg_check_modules(NCURSES ncurses>=5.9)
+if(NOT DEFINED WITH_TUI)
+    set(WITH_TUI NCURSES_FOUND)
+endif()
+add_feature_info(TUI WITH_TUI "Text-user interface")
+
 # --------------------------------------------------------
 
 # Print out a summary of what was found and what is missing

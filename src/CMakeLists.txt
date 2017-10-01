@@ -845,3 +845,8 @@ if(RG_LIBRARY_TYPE STREQUAL "SHARED")
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
 endif()
+
+if(WITH_TUI)
+    add_executable(rosegarden-tui tui/main.cpp)
+    target_link_libraries(rosegarden-tui ${NCURSES_LIBRARIES})
+endif()
